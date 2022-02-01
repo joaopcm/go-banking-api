@@ -6,9 +6,11 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/great", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprint(w, "Hello world!")
-	})
+	http.HandleFunc("/great", greet)
 
 	http.ListenAndServe("localhost:8000", nil)
+}
+
+func greet(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, "Hello world!")
 }
