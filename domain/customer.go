@@ -1,5 +1,7 @@
 package domain
 
+import "github.com/joaopcm/go-banking-api/errs"
+
 type Customer struct {
 	Id string `json:"id" xml:"id"`
 	Name string `json:"name" xml:"name"`
@@ -11,5 +13,5 @@ type Customer struct {
 
 type CustomerRepository interface {
 	FindAll() ([]Customer, error)
-	ById(string) (*Customer, error)
+	ById(string) (*Customer, *errs.AppError)
 }
